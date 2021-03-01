@@ -240,33 +240,3 @@ Else
     }
 }
 
-# Check for basic authentication.
-$basicAuthSetting = Get-ChildItem WSMan:\localhost\Service\Auth | Where-Object {$_.Name -eq "Basic"}
-
-If ($DisableBasicAuth)
-{
-    If (($basicAuthSetting.Value) -eq $true)
-    {
-        Write-Verbose "Disabling basic auth support."
-        Set-Item -Path "WSMan:\localhost\Service\Auth\Basic" -Value $false
-        Write-Log "Disabled basic auth support."
-    }
-    Else
-    {
-        Write-Verbose "Basic auth is already disabled."
-    }
-}
-Else
-{
-    If (($basicAuthSetting.Value) -eq $false)
-    {
-        Write-Verbose "Enabling basic auth support."
-        Set-Item -Path "WSMan:\localhost\Service\Auth\Basic" -Value $true
-        Write-Log "Enabled basic auth support."
-    }
-    Else
-    {
-        Write-Verbose "Basic auth is already enabled."
-    }
-}
-
