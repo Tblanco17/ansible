@@ -338,20 +338,5 @@ Else
     }
 }
 
-# If EnableCredSSP if set to true
-If ($EnableCredSSP)
-{
-    # Check for CredSSP authentication
-    $credsspAuthSetting = Get-ChildItem WSMan:\localhost\Service\Auth | Where-Object {$_.Name -eq "CredSSP"}
-    If (($credsspAuthSetting.Value) -eq $false)
-    {
-        Write-Verbose "Enabling CredSSP auth support."
-        Enable-WSManCredSSP -role server -Force
-        Write-Log "Enabled CredSSP auth support."
-    }
-}
 
-If ($GlobalHttpFirewallAccess) {
-    Enable-GlobalHttpFirewallAccess
-}
 
