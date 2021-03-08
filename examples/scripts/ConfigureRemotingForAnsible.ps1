@@ -6,12 +6,8 @@
 Param (
     [string]$SubjectName = $env:COMPUTERNAME,
     [int]$CertValidityDays = 1095,
-    [switch]$SkipNetworkProfileCheck,
     $CreateSelfSignedCert = $true,
     [switch]$ForceNewSSLCert,
-    [switch]$GlobalHttpFirewallAccess,
-    [switch]$DisableBasicAuth = $false,
-    [switch]$EnableCredSSP
 )
 
 Function Write-Log
