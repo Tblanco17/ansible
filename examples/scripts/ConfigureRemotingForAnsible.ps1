@@ -111,6 +111,15 @@ Function New-LegacySelfSignedCert
 }
 
 
+
+
+
+
+
+
+
+
+
 # Make sure there is a SSL listener.
 $listeners = Get-ChildItem WSMan:\localhost\Listener
 If (!($listeners | Where-Object {$_.Keys -like "TRANSPORT=HTTPS"}))
