@@ -1,5 +1,4 @@
 
-
 # Support -Verbose option
 [CmdletBinding()]
 
@@ -9,7 +8,9 @@ Param (
     [switch]$SkipNetworkProfileCheck,
     $CreateSelfSignedCert = $true,
     [switch]$ForceNewSSLCert,
+    [switch]$GlobalHttpFirewallAccess,
     [switch]$DisableBasicAuth = $false,
+    [switch]$EnableCredSSP
 )
 
 Function Write-Log
