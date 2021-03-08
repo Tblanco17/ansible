@@ -153,23 +153,7 @@ If ($PSVersionTable.PSVersion.Major -lt 3)
     Throw "PowerShell version 3 or higher is required."
 }
 
-# Find and start the WinRM service.
-Write-Verbose "Verifying WinRM service."
-If (!(Get-Service "WinRM"))
-{
-    Write-Log "Unable to find the WinRM service."
-    Throw "Unable to find the WinRM service."
-}
-ElseIf ((Get-Service "WinRM").Status -ne "Running")
-{
-    Write-Verbose "Setting WinRM service to start automatically on boot."
-    Set-Service -Name "WinRM" -StartupType Automatic
-    Write-Log "Set WinRM service to start automatically on boot."
-    Write-Verbose "Starting WinRM service."
-    Start-Service -Name "WinRM" -ErrorAction Stop
-    Write-Log "Started WinRM service."
 
-}
 
 
 
