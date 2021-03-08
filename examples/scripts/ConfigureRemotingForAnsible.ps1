@@ -10,7 +10,7 @@ Param (
     [switch]$ForceNewSSLCert,
     [switch]$GlobalHttpFirewallAccess,
     [switch]$DisableBasicAuth = $false,
-    [switch]$EnableCredSSP
+
 )
 
 Function Write-Log
