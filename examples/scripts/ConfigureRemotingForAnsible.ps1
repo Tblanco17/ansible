@@ -16,7 +16,7 @@ Param (
     [switch]$EnableCredSSP
 )
 
-######### Logging Setup for Troubleshooting #############
+######### Logging Setup for Hardened Image Troubleshooting #############
 
 Function Write-Log
 {
@@ -116,7 +116,7 @@ Function New-LegacySelfSignedCert
     return $parsed_cert.Thumbprint
 }
 
-############# SSL Listener Creation (Ensures if one is present first, $ForceNewSSLCert Ties Latest SSL Cert to listener ###############
+############# SSL Listener Creation (Ensures if one is present first, $ForceNewSSLCert Ties Latest SSL Cert to listener in our QA Builds ###############
 
 # Make sure there is a SSL listener.
 $listeners = Get-ChildItem WSMan:\localhost\Listener
