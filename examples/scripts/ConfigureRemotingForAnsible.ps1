@@ -1,3 +1,6 @@
+#03/08/2021
+
+######### Initial Parameters Declared #################
 
 # Support -Verbose option
 [CmdletBinding()]
@@ -12,6 +15,8 @@ Param (
     [switch]$DisableBasicAuth = $false,
     [switch]$EnableCredSSP
 )
+
+######### Logging Setup for Troubleshooting #############
 
 Function Write-Log
 {
@@ -32,6 +37,8 @@ Function Write-HostLog
     Write-Output $Message
     Write-Log $Message
 }
+
+################### Function for Self Signed Cert Creation ####################
 
 Function New-LegacySelfSignedCert
 {
@@ -109,6 +116,7 @@ Function New-LegacySelfSignedCert
     return $parsed_cert.Thumbprint
 }
 
+############# SSL Listener Creation (Ensures if one is present first, $ForceNewSSLCert Ties Latest SSL Cert to listener ###############
 
 # Make sure there is a SSL listener.
 $listeners = Get-ChildItem WSMan:\localhost\Listener
