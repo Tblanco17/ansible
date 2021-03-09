@@ -116,7 +116,7 @@ Function New-LegacySelfSignedCert
     return $parsed_cert.Thumbprint
 }
 
-############# SSL Listener Creation (Ensures if one is present first, $ForceNewSSLCert Ties Latest SSL Cert to listener in our QA Builds ###############
+############# SSL Listener Creation ($ForceNewSSLCert utilizes function above to create new SSL Cert and ties it to the listener for our QA Builds ###############
 
 # Make sure there is a SSL listener.
 $listeners = Get-ChildItem WSMan:\localhost\Listener
